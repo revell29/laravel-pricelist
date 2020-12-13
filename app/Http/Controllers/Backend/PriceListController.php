@@ -24,13 +24,13 @@ class PriceListController extends Controller
             $data = PriceList::select("*");
             return DataTables::of($data)
                 ->editColumn('price_1', function ($row) {
-                    return "Rp" . number_format($row->price_1, 0, '', '.');
+                    return "Rp " . number_format($row->price_1, 0, '', '.');
                 })
                 ->editColumn('price_2', function ($row) {
-                    return "Rp" . number_format($row->price_2, 0, '', '.');
+                    return "Rp " . number_format($row->price_2, 0, '', '.');
                 })
                 ->editColumn('price_3', function ($row) {
-                    return "Rp" . number_format($row->price_3, 0, '', '.');
+                    return "Rp " . number_format($row->price_3, 0, '', '.');
                 })
                 ->escapeColumns([])
                 ->make(true);
