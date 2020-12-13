@@ -76,6 +76,9 @@
 
 @push('javascript')
 <script>
+    
+  
+
     var table = $('#data-table').DataTable({
             processing: true,
             serverSide: true,
@@ -134,6 +137,8 @@
                 }
             });
         });
+
+        $(".dataTables_filter > #table-action").css("display",'none');
 </script>
-<script type="text/javascript" src="/custom/custom.js"></script>
+<script type="text/javascript" src="/custom/custom-no.js"></script>
 @endpush
