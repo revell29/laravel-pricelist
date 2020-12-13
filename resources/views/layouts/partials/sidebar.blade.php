@@ -36,6 +36,7 @@
                         </span>
                     </a>
                 </li>
+                @if(auth()->user()->role == 'admin')
                 <li
                     class="nav-item nav-item-submenu {{ in_array(request()->segment(2), ['user'])  ? 'nav-item-open nav-item-expanded' : '' }}">
                     <a href="#" class="nav-link"><i class="icon-users"></i> <span>User Management</span></a>
@@ -46,20 +47,16 @@
                         </li>
                     </ul>
                 </li>   
-                <li
-                    class="nav-item nav-item-submenu {{ in_array(request()->segment(2), ['hr'])  ? 'nav-item-open nav-item-expanded' : '' }}">
-                    <a href="#" class="nav-link"><i class="icon-users"></i> <span>HR Management</span></a>
-
-                    <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="{{ route('employee.index') }}"
-                                class="nav-link {{ request()->segment(3) == 'employee' ? 'active' : '' }}">Employee</a>
-                        </li>
-                        <li class="nav-item"><a href="{{ route('departement.index') }}"
-                                class="nav-link {{ request()->segment(3) == 'departement' ? 'active' : '' }}">Departement</a>
-                        </li>
-                    </ul>
-                </li>   
-                
+                @endif
+                <li class="nav-item">
+                    <a href="{{ route('pricelist.index') }}"
+                        class="nav-link {{ request()->segment(2) == 'pricelist' ? 'active' : '' }}">
+                        <i class="icon-list"></i>
+                        <span>
+                            Price List
+                        </span>
+                    </a>
+                </li>
                 <!-- /main -->
             </ul>
         </div>

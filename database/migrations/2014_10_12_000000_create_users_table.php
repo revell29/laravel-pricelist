@@ -17,12 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('no_hp')->unique();
             $table->string('password');
-            $table->integer('created_by');
-            $table->integer('updated_by')->nullable();
             $table->rememberToken();
+            $table->enum('role', ['admin', 'sales']);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

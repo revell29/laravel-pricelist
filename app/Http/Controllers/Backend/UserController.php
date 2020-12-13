@@ -31,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('pages.user.create_edit');
+        $options = $this->options();
+        return view('pages.user.create_edit', compact('options'));
     }
 
     /**
@@ -48,8 +49,9 @@ class UserController extends Controller
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'no_hp' => $request->no_hp,
+                'role' => $request->role,
                 'password' => \bcrypt($request->password),
-                'created_by' => Auth::user()->id
             ]);
 
             DB::commit();
@@ -80,7 +82,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::findOrFail($id);
-        return view('pages.user.create_edit', compact('data'));
+        $options = $this->options();
+        return view('pages.user.create_edit', compact('data', 'options'));
     }
 
     /**
@@ -99,7 +102,8 @@ class UserController extends Controller
             $data->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'updated_by' => Auth::user()->id
+                'no_hp' => $request->no_hp,
+                'role' => $request->role
             ]);
 
             if (!empty($request->password)) {
@@ -158,19 +162,22 @@ class UserController extends Controller
      * */
     public function data(Request $request)
     {
-        $data = User::withTrashed();
+        $data = User::select("*");
 
         return DataTables::of($data)
             ->addIndexColumn()
             ->editColumn('name', function ($item) {
                 return '<a href="' . route('user.edit', $item->id) . '">' . $item->name . '</a>';
             })
-            ->editColumn('deleted_at', function ($item) {
-                $green = "<span style='color: green'><i class='icon-checkmark'></i></span>";
-                $red = "<span style='color: red'><i class='icon-x'></i></span>";
-                return is_null($item->deleted_at) ? $green : $red;
-            })
             ->escapeColumns([])
             ->make(true);
+    }
+
+    private function options()
+    {
+        $role  = ['admin' => 'Admin', 'sales' => 'Sales'];
+        $options['roles'] = $role;
+
+        return $options;
     }
 }

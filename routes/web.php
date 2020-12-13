@@ -33,18 +33,8 @@ Route::group(['prefix' => 'backend'], function () {
         Route::delete('user/remove/{id}', 'Backend\UserController@remove')->name('user.delete');
         Route::resource('user', 'Backend\UserController');
 
-        /**
-         * HR Management
-         */
-        Route::group(['prefix' => 'hr'], function () {
-            Route::post('departement/restore/{id}', 'Backend\DepartementController@restore')->name('departement.restore');
-            Route::delete('departement/remove/{id}', 'Backend\DepartementController@remove')->name('departement.delete');
-            Route::resource('departement', 'Backend\DepartementController');
-
-            // Employee
-            Route::post('employee/restore/{id}', 'Backend\EmployeeController@restore')->name('employee.restore');
-            Route::delete('employee/remove/{id}', 'Backend\EmployeeController@remove')->name('employee.delete');
-            Route::resource('employee', 'Backend\EmployeeController');
-        });
+        Route::get('pricelist/download', 'Backend\PriceListController@download')->name('pricelist.download');
+        Route::post('pricelist/import', 'Backend\PriceListController@import')->name('pricelist.import');
+        Route::resource('pricelist', 'Backend\PriceListController');
     });
 });

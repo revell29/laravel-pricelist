@@ -10,10 +10,12 @@
 @section('content')
 @component('layouts.component.header')
 @slot('tools')
-<a href="{{route('user.create')}}" class="btn btn-md btn-primary">
-    <i class="icon-plus-circle2 mr-2"></i>
-    <span>@lang('lang.add_user')</span>
-</a>
+    @if(auth()->user()->role == 'admin')
+        <a href="{{route('user.create')}}" class="btn btn-md btn-primary">
+            <i class="icon-plus-circle2 mr-2"></i>
+            <span>@lang('lang.add_user')</span>
+        </a>
+    @endif
 @endslot
 @slot('breadcumbs')
 <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> / User / Users</h4>
@@ -38,7 +40,7 @@
             </div>
         </div>
 
-        <table class="table table-hover table-bordered table-xxs datatable-select-checkbox" id="data-table"
+        <table class="table table-hover table-bordered table-xs datatable-select-checkbox" id="data-table"
             data-url="{{route('user.index')}}">
             <thead>
                 <tr>
@@ -47,7 +49,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Created At</th>
-                    <th class="text-center">Active</th>
                 </tr>
             </thead>
         </table>
@@ -82,7 +83,6 @@
                 { data: 'name', name: 'name' },
                 { data: 'email', name: 'email' },
                 { data: 'created_at', name: 'created_at' },
-                { data: 'deleted_at', name: 'deleted_at', width: '30px', class: 'text-center', searchable: false },
             ]
         });
 </script>

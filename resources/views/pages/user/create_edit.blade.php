@@ -39,6 +39,15 @@
                                 value="{{isset($data) ? $data->email : null}}">
                         </div>
                         <div class="form-group">
+                            <label for="">No HP</label>
+                            <input type="text" name="no_hp" class="form-control" id=""
+                                value="{{isset($data) ? $data->no_hp : null}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Role</label>
+                           {!! Form::select('role',$options['roles'], isset($data) ? $data->role : null, ['class' => 'form-select select','placeholder' => 'Pilih Role']) !!}
+                        </div>
+                        <div class="form-group">
                             <label for="">Password</label>
                             <input type="password" name="password" class="form-control" id="" value="">
                         </div>

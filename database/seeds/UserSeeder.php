@@ -16,21 +16,9 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Jhone Doe',
             'email' => 'admin@example.com',
+            'no_hp' => '934829308490238',
             'password' => bcrypt('admin123'),
-            'created_by' => 1
+            'role' => 'admin',
         ]);
-
-        $faker = Faker::create('id_ID');
-
-        for ($i = 1; $i <= 50; $i++) {
-
-            // insert data ke table pegawai menggunakan Faker
-            DB::table('users')->insert([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'password' => bcrypt('admin123'),
-                'created_by' => 1
-            ]);
-        }
     }
 }

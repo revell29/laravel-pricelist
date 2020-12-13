@@ -120,12 +120,10 @@
                 <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
                     <img src="../../../../global_assets/images/demo/users/face11.jpg" class="rounded-circle mr-2"
                         height="34" alt="">
-                    <span>Victoria</span>
+                    <span>{{ auth()->user()->name }}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-                    <a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
                     <a href="{{ route('logout') }}" class="dropdown-item"><i class="icon-switch2"></i>
                         Logout</a>
                 </div>
