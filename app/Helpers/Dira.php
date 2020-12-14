@@ -36,3 +36,11 @@ if (!function_exists('num_uf')) {
     return str_replace('.', '', $number);
   }
 }
+
+if (!function_exists('get_news')) {
+  function get_news()
+  {
+    $data = \App\Models\MsNews::orderBy('created_at', 'DESC')->first();
+    return $data;
+  }
+}

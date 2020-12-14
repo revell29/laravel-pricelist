@@ -36,9 +36,7 @@
 <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> / Price List</h4>
 <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
 @endslot
-@slot('breadcumbs2')
 
-@endslot
 @endcomponent
 <div class="content">
     <div class="card">
@@ -76,9 +74,6 @@
 
 @push('javascript')
 <script>
-    
-  
-
     var table = $('#data-table').DataTable({
             processing: true,
             serverSide: true,
@@ -138,7 +133,15 @@
             });
         });
 
-        $(".dataTables_filter > #table-action").css("display",'none');
+       $(document).on('change', "input.vis-column", function(e) {
+        e.preventDefault();
+            console.log($(this).attr('data-column'))
+            // Get the column API object
+            var column = table.column( $(this).attr('data-column') );
+    
+            // Toggle the visibility
+            column.visible( ! column.visible() );
+       });
 </script>
 <script type="text/javascript" src="/custom/custom-no.js"></script>
 @endpush

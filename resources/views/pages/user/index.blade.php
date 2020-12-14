@@ -21,11 +21,7 @@
 <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> / User / Users</h4>
 <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
 @endslot
-@slot('breadcumbs2')
-<a href="{{url('/backend/home')}}" class="breadcrumb-item">Home</a>
-<a href="{{route('user.index')}}" class="breadcrumb-item">User</a>
-<span class="breadcrumb-item active">users</span>
-@endslot
+
 @endcomponent
 <div class="content">
     <div class="card">

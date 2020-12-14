@@ -36,5 +36,9 @@ Route::group(['prefix' => 'backend'], function () {
         Route::get('pricelist/download', 'Backend\PriceListController@download')->name('pricelist.download');
         Route::post('pricelist/import', 'Backend\PriceListController@import')->name('pricelist.import');
         Route::resource('pricelist', 'Backend\PriceListController');
+
+        Route::post('news/restore/{id}', 'Backend\NewsController@restore')->name('news.restore');
+        Route::delete('news/remove/{id}', 'Backend\NewsController@remove')->name('news.delete');
+        Route::resource('news', 'Backend\NewsController');
     });
 });

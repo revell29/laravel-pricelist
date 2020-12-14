@@ -12,6 +12,54 @@ $(document).ready(function () {
     //         "</select>"
     // );
 
+    $(`
+        <div class="d-flex" style="position:relative; float:left; margin: 0 0 1.25rem 1.25rem;">
+           <div>
+                <div class="form-check d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='0' checked> ID
+                    </label>
+                </div>
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='1' checked> Barcode
+                    </label>
+                </div>
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='2' checked> Nama Item
+                    </label>
+                </div>
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='3' checked> Nama Popular
+                    </label>
+                </div>
+           </div>
+           <div>      
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='4' checked> Satuan
+                    </label>
+                </div>
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='5' checked> Harga Satuan 1
+                    </label>
+                </div>
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='6' checked> Harga Satuan 2
+                    </label>
+                </div>
+                <div class="form-check ml-2 d-inline-block">
+                    <label class='form-check-label'>
+                        <input type="checkbox" class="styled vis-column" data-column='7' checked> Harga Satuan 3
+                    </label>
+                </div> 
+            </div>
+        </div>
+    `).insertAfter('div.dt-buttons')
     setSelect2ForAction();
     function setSelect2ForAction() {
         $(".dataTables_filter select").select2({

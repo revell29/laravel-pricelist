@@ -31,6 +31,16 @@
 
     <!-- Theme CSS --->
     @yield('styles')
+
+    <style>
+    .info {
+        border-radius: 0px;
+        padding: 4px;
+        font-size: 14px;
+        display: flex
+        align-items: center;
+    }
+    </style>
     <!-- /Theme css -->
 
     <!-- Theme js --->

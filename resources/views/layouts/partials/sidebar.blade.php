@@ -48,6 +48,17 @@
                         </span>
                     </a>
                 </li>
+               @if(auth()->user()->role == 'admin')
+                <li class="nav-item">
+                    <a href="{{ route('news.index') }}"
+                        class="nav-link {{ request()->segment(2) == 'news' ? 'active' : '' }}">
+                        <i class="icon-newspaper"></i>
+                        <span>
+                            Berita
+                        </span>
+                    </a>
+                </li>
+               @endif
                 <!-- /main -->
             </ul>
         </div>
