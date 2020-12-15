@@ -13,9 +13,9 @@ $(document).ready(function () {
     // );
 
     $(`
-        <div class="d-flex" style="position:relative; float:left; margin: 0 0 1.25rem 1.25rem;">
+        <div class="d-flex" style="position:relative; float:left; margin: 0 0 1.25rem 1.25rem; text-align: left;">
            <div>
-                <div class="form-check d-inline-block">
+                <div class="form-check d-inline-block ml-2">
                     <label class='form-check-label'>
                         <input type="checkbox" class="styled vis-column" data-column='0' checked> ID
                     </label>

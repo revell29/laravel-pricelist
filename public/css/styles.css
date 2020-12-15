@@ -1,8 +1,5 @@
 .info {
-  border-radius: 0px;
-  padding: 4px;
-  font-size: 14px;
-  display: flex align-items: center;
+  background-color: #F08519 !important;
 }
 
 .navbar-dark {

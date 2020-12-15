@@ -14,6 +14,6 @@
 @if(get_news())
 <div class="alert alert-primary border-0 alert-dismissible">
     <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
-   <marquee> {{ get_news()->judul }}</marquee>
+   <marquee style="color: orange;"><strong> {{ get_news()->judul }}</strong></marquee>
 </div>
 @endif
