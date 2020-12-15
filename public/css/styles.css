@@ -18,6 +18,10 @@
   color: #fff;
 }
 
+.sidebar-dark .sidebar-mobile-toggler {
+  background-color: #F08519 !important;
+}
+
 .active {
   background-color: #585858 !important;
 }
