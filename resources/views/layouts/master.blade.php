@@ -17,6 +17,7 @@
     <link href="/css/layout.min.css" rel="stylesheet" type="text/css">
     <link href="/css/components.min.css" rel="stylesheet" type="text/css">
     <link href="/css/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
@@ -31,16 +32,6 @@
 
     <!-- Theme CSS --->
     @yield('styles')
-
-    <style>
-    .info {
-        border-radius: 0px;
-        padding: 4px;
-        font-size: 14px;
-        display: flex
-        align-items: center;
-    }
-    </style>
     <!-- /Theme css -->
 
     <!-- Theme js --->

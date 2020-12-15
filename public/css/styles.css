@@ -1,0 +1,23 @@
+.info {
+  border-radius: 0px;
+  padding: 4px;
+  font-size: 14px;
+  display: flex align-items: center;
+}
+
+.navbar-dark {
+  background-color: #F08519 !important;
+}
+
+.sidebar-dark {
+  background-color: #747474 !important;
+}
+
+.sidebar-dark .nav-sidebar>.nav-item-open>.nav-link:not(.disabled), .sidebar-dark .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light .card[class*=bg-]:not(.bg-light):not(.bg-white):not(.bg-transparent) .nav-sidebar>.nav-item-open>.nav-link:not(.disabled), .sidebar-light .card[class*=bg-]:not(.bg-light):not(.bg-white):not(.bg-transparent) .nav-sidebar>.nav-item>.nav-link.active {
+  background-color: #7e7e7e;
+  color: #fff;
+}
+
+.active {
+  background-color: #585858 !important;
+}
