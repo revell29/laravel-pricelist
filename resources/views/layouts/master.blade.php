@@ -54,8 +54,11 @@
         @include('layouts.partials.sidebar')
         <div class="content-wrapper">
             @yield('content')
+
             @include('layouts.partials.footer')
         </div>
+
+        @include('layouts.partials.modal-news')
 
     </div>
 
@@ -76,6 +79,12 @@
     @yield('scripts')
     @stack('javascript')
     <script type="text/javascript" src="/custom/dira.js"></script>
+    <script>
+        $("#newsBg").on('click', function() {
+            console.log('test')
+            $("#modal-news").modal("toggle")
+        });
+    </script>
 </body>
 
 </html>
