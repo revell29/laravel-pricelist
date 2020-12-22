@@ -43,7 +43,6 @@
                     <th><input type="checkbox" class="styled" id="select-all"></th>
                     <th>Tanggal</th>
                     <th>Judul</th>
-                    <th>Deskripsi</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -77,7 +76,6 @@
                 { data: 'id', name: 'id', width: '50px', orderable: false, render: function() { return ''} },
                 { data: 'created_at', name: 'created_at', searchable: false },
                 { data: 'judul', name: 'judul' },
-                { data: 'description', name: 'description' },
                 { data: 'deleted_at', name: 'deleted_at', class: 'text-center', width: '30px' },
             ]
         });

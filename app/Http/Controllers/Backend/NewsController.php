@@ -53,7 +53,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        MsNews::create($request->all());
+        MsNews::create(['judul' => $request->judul, 'description' => $request->description]);
         return response()->json(['message' => 'Berita berhasil ditambahkan.'], 200);
     }
 
@@ -90,7 +90,7 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $data = MsNews::find($id);
-        $data->update($request->all());
+        $data->update(['judul' => $request->judul, 'description' => $request->description]);
         return response()->json(['message' => 'Berita berhasil diperbarui.'], 200);
     }
 

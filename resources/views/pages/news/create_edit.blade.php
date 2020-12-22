@@ -23,7 +23,8 @@
                 </div>
                 <div class="card-body">
                     <form id="form-user" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                        @if(isset($data)) <input type="hidden" name="_method" value="PUT"> @endif
+                        {{ csrf_field() }}                        
                         <div class="form-group">
                             <label for="">Judul</label>
                             <input type="text" name="judul" class="form-control" id=""
@@ -31,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Deskripsi</label>
-                          <textarea name="description" class="form-control" rows="10">{{ isset($data) ? $data->description : null }}</textarea>
+                          <textarea id="content" class="form-control" rows="10">{{ isset($data) ? $data->description : null }}</textarea>
                         </div>
                     </form>
                 </div>
@@ -47,18 +48,28 @@
 </div>
 @endsection
 @push('javascript')
+<script src="//cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 {!! JsValidator::formRequest('App\Http\Requests\News\NewsRequest') !!}
 <script>
+     CKEDITOR.replace( 'content' );
+
     $('#save').on("click",function(){
     let btn = $(this);
     let form = $('#form-user');
+    var content = CKEDITOR.instances['content'].getData();
+    let formNews = document.forms.namedItem('form-user');
+    let formData = new FormData(formNews);
+    formData.append('description',content)
     if(form.valid()) {
         $.ajax({
             url: "{{isset($data) ? route('news.update',$data->id) : route('news.store')}}",
-            method: "{{isset($data) ? 'PATCH' : 'POST'}}",
-            data: $('#form-user').serialize(),
+            method: "POST",
+            data: formData,
             dataType: 'JSON',
+            async: true,
+            contentType: false,
+            processData: false,
             beforeSend: function(){
                 btn.html('Please wait').prop('disabled',true);
             },
